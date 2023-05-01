@@ -13,7 +13,8 @@
     "format": "prettier --write src/",
     "prepare": "husky install",
     "server": "json-server --watch db.json --port 3001",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "commitlint": "commitlint"
   },
   "dependencies": {
     "vue": "^3.2.47",
