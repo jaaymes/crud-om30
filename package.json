@@ -9,12 +9,14 @@
     "test:unit": "vitest",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
+    "lint:style": "stylelint \"**/*.{css,scss,sass,html,vue}\" --ignore-path .gitignore",
+    "lint:prettier": "prettier --check .",
+    "lint": "yarn lint:js && yarn lint:style && yarn lint:prettier",
+    "lintfix": "prettier --write --list-different . && yarn lint:js --fix && yarn lint:style --fix",
     "format": "prettier --write src/",
     "prepare": "husky install",
-    "server": "json-server --watch db.json --port 3001",
-    "lint-staged": "lint-staged",
-    "commitlint": "commitlint"
+    "server": "json-server --watch db.json --port 3001"
   },
   "dependencies": {
     "vue": "^3.2.47",
